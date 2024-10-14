@@ -9,6 +9,9 @@ Merging pom.xml and ../../pom.xml for simplicity.
 ## How to build and test
 
 ```
+# Start Keycloak/RHBK 24 in prior
+$KC_HOME/bin/kc.sh start-dev --http-port 8180
+
 # Building
 mvn clean install
 
@@ -16,7 +19,7 @@ mvn clean install
 mvn integration-test
 ```
 
-Edit src/test/resources/arquillian.xml for WebDriver configuration.
+Edit [arquillian.xml](src/test/resources/arquillian.xml) for WebDriver configuration.
 
 ## Links
 
