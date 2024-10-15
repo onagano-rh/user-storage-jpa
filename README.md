@@ -9,14 +9,18 @@ Merging pom.xml and ../../pom.xml for simplicity.
 ## How to build and test
 
 ```
-# Start Keycloak/RHBK 24 in prior
+# Building
+mvn clean package
+
+# Deploying
+cp target/user-storage-jpa-example.jar $KC_HOME/providers/
+cp conf/quarkus.properties $KC_HOME/conf/
+
+# Start Keycloak/RHBK 24 (as a managed mode instance)
 $KC_HOME/bin/kc.sh start-dev --http-port 8180
 
-# Building
-mvn clean install
-
-# Or just testing
-mvn integration-test
+# Testing
+mvn verify
 ```
 
 Edit [arquillian.xml](src/test/resources/arquillian.xml) for WebDriver configuration.
