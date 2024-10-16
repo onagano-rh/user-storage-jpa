@@ -18,6 +18,7 @@ package org.keycloak.quickstart.storage.user;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.TypedQuery;
+import org.hibernate.jpa.HibernatePersistenceProvider;
 import org.jboss.logging.Logger;
 import org.keycloak.component.ComponentModel;
 import org.keycloak.connections.jpa.JpaConnectionProvider;
@@ -69,7 +70,7 @@ public class MyUserStorageProvider implements UserStorageProvider,
     MyUserStorageProvider(KeycloakSession session, ComponentModel model) {
         this.session = session;
         this.model = model;
-        em = session.getProvider(JpaConnectionProvider.class, "user-store").getEntityManager();
+        em = new HibernatePersistenceProvider().createEntityManagerFactory("user-store", model.getConfig()).createEntityManager();
     }
 
     @Override

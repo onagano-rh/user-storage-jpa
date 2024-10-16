@@ -14,10 +14,11 @@ mvn clean package
 
 # Deploying
 cp target/user-storage-jpa-example.jar $KC_HOME/providers/
-cp conf/quarkus.properties $KC_HOME/conf/
+# To avoid "java.lang.NoClassDefFoundError: org/jboss/jandex/DotName"
+cp $KC_HOME/lib/lib/deployment/io.smallrye.jandex-*.jar providers/
 
 # Start Keycloak/RHBK 24 (as a managed mode instance)
-$KC_HOME/bin/kc.sh start-dev --http-port 8180
+KEYCLOAK_ADMIN=admin KEYCLOAK_ADMIN_PASSWORD=admin $KC_HOME/bin/kc.sh start-dev --http-port 8180
 
 # Testing
 mvn verify
