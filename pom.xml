@@ -117,11 +117,6 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>org.keycloak</groupId>
-                <artifactId>keycloak-model-storage</artifactId>
-                <version>${version.keycloak}</version>
-            </dependency>
-            <dependency>
                 <groupId>org.hamcrest</groupId>
                 <artifactId>hamcrest-all</artifactId>
                 <version>${version.hamcrest}</version>
@@ -205,11 +200,6 @@
             <artifactId>jaxb-api</artifactId>
             <version>${version.jee.jaxb.api}</version>
             <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.keycloak</groupId>
-            <artifactId>keycloak-model-storage</artifactId>
-            <version>${version.keycloak}</version>
         </dependency>
         <dependency>
             <groupId>org.jboss.arquillian.junit</groupId>
