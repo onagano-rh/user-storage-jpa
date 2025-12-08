@@ -15,11 +15,7 @@
         http://jboss.org/schema/arquillian/arquillian_1_0.xsd">
 
     <extension qualifier="webdriver">
-        <property name="browser">firefox</property>
-        <property name="firefoxArguments">-headless</property>
-        <!--
         <property name="browser">chromeheadless</property>
-        <property name="chromeArguments">- -window-size=1920,1080</property>
-        -->
+        <property name="chromeArguments">--window-size=1920,1080</property>
     </extension>
 </arquillian>
