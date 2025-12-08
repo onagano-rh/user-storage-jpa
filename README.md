@@ -14,7 +14,7 @@ mvn clean package
 
 # Deploying
 cp target/user-storage-jpa-example.jar $KC_HOME/providers/
-cp conf/keycloak.conf $KC_HOME/conf/
+cat conf/keycloak.conf >> $KC_HOME/conf/keycloak.conf
 
 # Start Keycloak/RHBK 26.4
 $KC_HOME/bin/kc.sh start-dev --http-port 8180
