@@ -17,6 +17,7 @@ cp target/user-storage-jpa-example.jar $KC_HOME/providers/
 cat conf/keycloak.conf >> $KC_HOME/conf/keycloak.conf
 
 # Start Keycloak/RHBK 26.4
+# The test code assumes "admin/admin" in master realm and port 8180, not 8080.
 $KC_HOME/bin/kc.sh start-dev --http-port 8180
 
 # Testing
