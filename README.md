@@ -16,6 +16,10 @@ mvn clean package
 cp target/user-storage-jpa-example.jar $KC_HOME/providers/
 cat conf/keycloak.conf >> $KC_HOME/conf/keycloak.conf
 
+# Start H2 database for this User Storage SPI
+# And create the table as in conf/import.sql using the browser iterface
+java -jar lib/lib/main/com.h2database.h2-*.jar -url "jdbc:h2:./data/user-store;AUTO_SERVER=TRUE" -user sa -password password
+
 # Start Keycloak/RHBK 26.4
 # The test code assumes "admin/admin" in master realm and port 8180, not 8080.
 $KC_HOME/bin/kc.sh start-dev --http-port 8180
@@ -38,6 +42,7 @@ jakarta.ws.rs.WebApplicationException: Create method returned status Conflict (C
 ## Links
 
 - [RHBK 26.4, サーバー開発者ガイド, 第5章 ユーザーストレージ SPI](https://docs.redhat.com/ja/documentation/red_hat_build_of_keycloak/26.4/html/server_developer_guide/user-storage-spi)
+- [RHBK 26.4, サーバー設定ガイド, 21.4. データベース - 追加のデータソース](https://docs.redhat.com/ja/documentation/red_hat_build_of_keycloak/26.4/html/server_configuration_guide/all-config-category-database_datasources)
 - [Arquillian Drone](https://arquillian.org/arquillian-extension-drone/)
 - For `FluentTestsHelper`
   - <https://github.com/keycloak/keycloak/tree/release/24.0/misc/keycloak-test-helper>
