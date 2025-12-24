@@ -17,10 +17,12 @@
 package org.keycloak.quickstart.storage.user;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
 
 /**
  * @author <a href="mailto:bill@burkecentral.com">Bill Burke</a>
@@ -35,8 +37,10 @@ import jakarta.persistence.NamedQuery;
                 "( lower(u.username) like :search or u.email like :search ) order by u.username"),
 })
 @Entity
+@Table(name = "my_user_table")
 public class UserEntity {
     @Id
+    @Column(name = "login_id")
     private String id;
 
 
