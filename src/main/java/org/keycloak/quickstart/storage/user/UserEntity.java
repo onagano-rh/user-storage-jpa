@@ -40,10 +40,10 @@ import jakarta.persistence.Table;
 @Table(name = "my_user_table")
 public class UserEntity {
     @Id
-    @Column(name = "login_id")
     private String id;
 
 
+    @Column(name = "login_id")
     private String username;
     private String email;
     private String password;
